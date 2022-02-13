@@ -114,9 +114,9 @@ SELFCONNECTIONS = False
 SPLITFROMFILE = True
 VERBOSE = True
 
-if DATASET == 'ml_1m' or DATASET == 'ml_100k' or DATASET == 'douban':
+if DATASET == 'ml_1m' or DATASET == 'ml_10m' or DATASET == 'douban':
     NUMCLASSES = 5
-elif DATASET == 'ml_10m':
+elif DATASET == 'ml_20m':
     NUMCLASSES = 10
     print('\n WARNING: this might run out of RAM, consider using train_minibatch.py for dataset %s' % DATASET)
     print('If you want to proceed with this option anyway, uncomment this.\n')
@@ -133,7 +133,7 @@ elif DATASET == 'yahoo_music':
 
 # Splitting dataset in training, validation and test set
 
-if DATASET == 'ml_1m' or DATASET == 'ml_10m':
+if DATASET == 'ml_10m' or DATASET == 'ml_20m':
     if FEATURES:
         datasplit_path = 'data/' + DATASET + '/withfeatures_split_seed' + str(DATASEED) + '.pickle'
     else:
@@ -149,7 +149,7 @@ if DATASET == 'flixster' or DATASET == 'douban' or DATASET == 'yahoo_music':
         val_labels, val_u_indices, val_v_indices, test_labels, \
         test_u_indices, test_v_indices, class_values = load_data_monti(DATASET, TESTING)
 
-elif DATASET == 'ml_100k':
+elif DATASET == 'ml_1m':
     print("Using official MovieLens dataset split u1.base/u1.test with 20% validation set size...")
     u_features, v_features, adj_train, train_labels, train_u_indices, train_v_indices, \
         val_labels, val_u_indices, val_v_indices, test_labels, \
