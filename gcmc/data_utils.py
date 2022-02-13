@@ -67,10 +67,10 @@ def download_dataset(dataset, files, data_dir):
         request = urlopen(url)
 
         print('Downloading %s dataset' % dataset)
-        if dataset in ['ml_100k', 'ml_1m']:
+        if dataset in ['ml_1m', 'ml_10m']:
             target_dir = 'data/' + dataset.replace('_', '-')
-        elif dataset == 'ml_10m':
-            target_dir = 'data/' + 'ml-10M100K'
+        elif dataset == 'ml_20m':
+            target_dir = 'data/' + 'ml-20M100K'
         else:
             raise ValueError('Invalid dataset option %s' % dataset)
 
@@ -131,7 +131,7 @@ def load_data(fname, seed=1234, verbose=True):
 
     data_dir = 'data/' + fname
 
-    if fname == 'ml_100k':
+    if fname == 'ml_1m':
 
         # Check if files exist and download otherwise
         files = ['/u.data', '/u.item', '/u.user']
@@ -215,7 +215,7 @@ def load_data(fname, seed=1234, verbose=True):
         u_features = sp.csr_matrix(u_features)
         v_features = sp.csr_matrix(v_features)
 
-    elif fname == 'ml_1m':
+    elif fname == 'ml_10m':
 
         # Check if files exist and download otherwise
         files = ['/ratings.dat', '/movies.dat', '/users.dat']
@@ -305,7 +305,7 @@ def load_data(fname, seed=1234, verbose=True):
         u_features = sp.csr_matrix(u_features)
         v_features = sp.csr_matrix(v_features)
 
-    elif fname == 'ml_10m':
+    elif fname == 'ml_20m':
 
         # Check if files exist and download otherwise
         files = ['/ratings.dat']
