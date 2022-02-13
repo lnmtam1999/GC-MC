@@ -152,7 +152,7 @@ def create_trainvaltest_split(dataset, seed=1234, testing=False, datasplit_path=
 
     # number of test and validation edges
     num_test = int(np.ceil(ratings.shape[0] * 0.1))
-    if dataset == 'ml_100k':
+    if dataset == 'ml_1m':
         num_val = int(np.ceil(ratings.shape[0] * 0.9 * 0.05))
     else:
         num_val = int(np.ceil(ratings.shape[0] * 0.9 * 0.05))
@@ -449,7 +449,7 @@ def load_official_trainvaltest_split(dataset, testing=False):
 
     class_values = np.sort(np.unique(ratings))
 
-    if dataset =='ml_100k':
+    if dataset =='ml_1m':
 
         # movie features (genres)
         sep = r'|'
