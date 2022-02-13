@@ -112,18 +112,18 @@ ACCUM = args['accumulation']
 SELFCONNECTIONS = False
 SPLITFROMFILE = True
 VERBOSE = True
-if DATASET == 'ml_1m' or DATASET == 'ml_100k':
+if DATASET == 'ml_10m' or DATASET == 'ml_1m':
     NUMCLASSES = 5
-elif DATASET == 'ml_10m':
+elif DATASET == 'ml_20m':
     NUMCLASSES = 10
 else:
     raise ValueError('Invalid choice of dataset: %s' % DATASET)
 
 # Splitting dataset in training, validation and test set
 
-if DATASET == 'ml_1m' or DATASET == 'ml_10m':
+if DATASET == 'ml_10m' or DATASET == 'ml_20m':
     datasplit_path = 'data/' + DATASET + '/split_seed' + str(DATASEED) + '.pickle'
-elif DATASET == 'ml_100k':
+elif DATASET == 'ml_1m':
     datasplit_path = 'data/' + DATASET + '/nofeatures.pickle'
 
 
