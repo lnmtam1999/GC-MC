@@ -7,7 +7,6 @@ import argparse
 import datetime
 import time
 
-import pickle as cPickle
 import tensorflow as tf
 import numpy as np
 import scipy.sparse as sp
